@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Comida</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="CSS/Produtos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/cart-localstorage@1.1.4/dist/cart-localstorage.min.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <div class="btn prn">
+                        <a class="nav-link" href="HomePage.html"><i class="fa fa-home" aria-hidden="true" style="color: white;"></i></a>
+                    </div>
+                    <div class="btn prn">
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="Cafés.html">Cafés</a>
+                                <a class="dropdown-item" href="Comida.html">Comida</a>
+                                <a class="dropdown-item" href="Bebibas.html">Bebida</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn prn">
+                        <a class="nav-link" href="Aderir.html">Aderir à <i>Expresso!</i></a>
+                    </div>
+                    <div class="btn prn">
+                        <a class="nav-link" href="#">Pedidos Habituais</a>
+                    </div>
+                    <div style="margin-left: auto">
+                        <!--style="margin-left: 56rem;"-->
+                        <div class="btn prn" data-bs-toggle="modal" data-bs-target="#PedidoModal">
+                            <a class="nav-link" href="#">Pedido</a>
+                        </div>
+                        <div class="btn prn">
+                            <div class="nav-item dropdown">
+                                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i style="color:white;" class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="Profile.html">A minha Conta</a>
+                                    <a class="dropdown-item" href="Login.html">Log Out</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pedido Modal -->
+	<div class="modal fade" id="PedidoModal" tabindex="-1" aria-labelledby="pedidolabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div style="background-color: white;" class="card mb-4 shadow-sm">
+						<div class="card-header">
+							<h2 style="text-align: center; color: black;">O seu pedido</h2>
+						</div>
+						<div class="card-body overflow-auto">
+							<table class="table">
+								<tbody class="cart">
+								</tbody>
+								<tfoot>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td class="text-right">Total: <strong class="total"></strong></td>
+									<td></td>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+					<div class="fotter">
+						<a href="Método.html">
+							<button style="width: 150px; height: 50px; background: #C29846; border-radius: 20px; float: right;">Avançar</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+<!--End of modal-->
+
+	<div class="row" align="center">
+		<div class="col-lg-4 col-md-6 col-sm-6 ">
+			<div class="card" style="width: 18rem; margin-bottom: 15px;" >
+				<img class="card-img-top" id="imagemCard" src="Imagens/Comida/pancakes.jpg">
+				<div class="card-body">
+					<p class="card-text" align="center"><p id="NomeProduto">Panquecas</p></p>
+					<p class="card-text" align="center">2 por 1.80€</p>
+					<button type="button" id="adicionarprincipal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PanquecasModal">Adicionar ao Pedido</button>
+				</div>
+			</div>
+		</div> 
+		<div class="col-lg-4 col-md-6 col-sm-6 ">
+			<div class="card" style="width: 18rem; margin-bottom: 15px;" >
+				<img class="card-img-top" id="imagemCard" src="Imagens/Comida/tosta mista.jpg">
+				<div class="card-body">
+					<p class="card-text" align="center"><p id="NomeProduto">Tosta Mista</p></p>
+					<p class="card-text" align="center">1.50€</p>
+					<button type="button" id="adicionarprincipal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TostaMistaModal">Adicionar ao Pedido</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-6 ">
+			<div class="card" style="width: 18rem; margin-bottom: 15px;" >
+				<img class="card-img-top" id="imagemCard" src="Imagens/Comida/cake slice.jpg">
+				<div class="card-body">
+					<p class="card-text" align="center"><p id="NomeProduto">Fatia de Bolo</p></p>
+					<p class="card-text" align="center">1.20</p>
+					<button type="button" id="adicionarprincipal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#FatiaDeBoloModal">Adicionar ao Pedido</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-6 ">
+			<div class="card" style="width: 18rem; margin-bottom: 15px;" >
+				<img class="card-img-top" id="imagemCard" src="Imagens/Comida/crossaint.jpg">
+				<div class="card-body">
+					<p class="card-text" align="center"><p id="NomeProduto">Croissant</p></p>
+					<p class="card-text" align="center">1.45€</p>
+					<button type="button" id="adicionarprincipal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CroissantModal">Adicionar ao Pedido</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-6 ">
+			<div class="card" style="width: 18rem; margin-bottom: 15px;" >
+				<img class="card-img-top" id="imagemCard" src="Imagens/Comida/donut.jpg">
+				<div class="card-body">
+					<p class="card-text" align="center"><p id="NomeProduto">Donut</p></p>
+					<p class="card-text" align="center">1.20€</p>
+					<button type="button" id="adicionarprincipal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#DonutModal">Adicionar ao Pedido</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-6 ">
+			<div class="card" style="width: 18rem; margin-bottom: 15px;" >
+				<img class="card-img-top" id="imagemCard" src="Imagens/Comida/pie slice.jpg">
+				<div class="card-body">
+					<p class="card-text" align="center"><p id="NomeProduto">Fatia de Tarte</p></p>
+					<p class="card-text" align="center">1.70€</p>
+					<button type="button" id="adicionarprincipal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#FatiaDeTarteModal">Adicionar ao Pedido</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-6 ">
+			<div class="card" style="width: 18rem; margin-bottom: 15px;" >
+				<img class="card-img-top" id="imagemCard" src="Imagens/Comida/Crepes.jpg">
+				<div class="card-body">
+					<p class="card-text" align="center"><p id="NomeProduto">Crepes</p></p>
+					<p class="card-text" align="center">2 por 1.70€</p>
+					<button type="button" id="adicionarprincipal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CrepesModal">Adicionar ao Pedido</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-6 ">
+			<div class="card" style="width: 18rem; margin-bottom: 15px;" >
+				<img class="card-img-top" id="imagemCard" src="Imagens/Comida/Torrada.webp">
+				<div class="card-body">
+					<p class="card-text" align="center"><p id="NomeProduto">Torrada</p></p>
+					<p class="card-text" align="center">1.20€</p>
+					<button type="button" id="adicionarprincipal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TorradasModal">Adicionar ao Pedido</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-6 ">
+			<div class="card" style="width: 18rem; margin-bottom: 15px;" >
+				<img class="card-img-top" id="imagemCard" src="Imagens/Comida/Eaffles.jpg">
+				<div class="card-body">
+					<p class="card-text" align="center"><p id="NomeProduto">Waffles</p></p>
+					<p class="card-text" align="center">2 por 1.20€</p>
+					<button type="button" id="adicionarprincipal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#WafflesModal">Adicionar ao Pedido</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Panquecas Modal -->
+	<div class="modal fade" id="PanquecasModal" tabindex="-1" aria-labelledby="panquecaslabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row d-flex justify-content-center" id="tit">
+								Panquecas
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-lg-4 col-md-4 col-sm-2">
+									<img class="modalfoto" 
+									src="https://assets.petco.com/petco/image/upload/f_auto,q_auto:best,dpr_2.0,w_386/weightmgmt-hphero-122722-dog-720x480"
+									/>
+								</div>
+								<div class="col-lg-8 col-md-8 col-sm-10">
+									<fieldset>
+										<h6>Escolher Topping:</h6>
+										<input type="radio" name="topping" value="Chocolate" id="chocolate"/><label for="chocolate"> Chocolate</label><br />
+										<input type="radio" name="topping" value="Morango" id="morango"/><label for="morango"> Morango</label><br />
+										<input type="radio" name="topping" value="Caramelo" id="caramelo"/><label for="caramelo"> Caramelo</label><br />
+										<input type="radio" name="topping" value="Xarope" id="xarope"/><label for="xarope"> Xarope</label><br />
+									</fieldset>
+									<br>
+									<fieldset>
+										<h6>Restrições Alimentares:</h6>
+										<input type="checkbox" name="restricoes" value="Nenhuma" id="nenhuma"/><label for="nenhuma"> Nenhuma</label><br />
+										<input type="checkbox" name="restricoes" value="Vegetariano" id="vegetariano"/><label for="vegetariano"> Vegetariano</label><br />
+										<input type="checkbox" name="restricoes" value="Vegan" id="vegan"/><label for="vegan"> Vegan</label><br />
+										<input type="checkbox" name="restricoes" value="Outra" id="outraPanquecas"/><label for="outra"></label> Outra:<br />
+										<input type="text" id="outratextPanquecas" disabled name="Selecione uma restrição Alimentar">
+									</fieldset>
+								</div>
+							</div>
+							<div>
+							</div>
+							<br>
+						</div>
+						<div class="modal-footer">
+							<button id="adicionarprincipal" type="button" class="btn btn-block btn-outline-primary"
+							onClick="cartLS.add({id: 11, name: 'Panquecas', price: 1.80})">
+							Adicionar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<!--End of modal-->  
+
+	<!--Tosta Mista Modal-->
+	<div class="modal fade" id="TostaMistaModal" tabindex="-1" aria-labelledby="tostamistalabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row d-flex justify-content-center" id="tit">
+								Tosta Mista
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-lg-4 col-md-4 col-sm-2">
+									<img class="modalfoto" 
+									src="https://assets.petco.com/petco/image/upload/f_auto,q_auto:best,dpr_2.0,w_386/weightmgmt-hphero-122722-dog-720x480"
+									/>
+								</div>
+								<div class="col-lg-8 col-md-8 col-sm-10">
+									<fieldset>
+										<h6>Restrições Alimentares:</h6>
+										<input type="checkbox" name="restricoes" value="Nenhuma" id="nenhuma"/><label for="nenhuma"> Nenhuma</label><br />
+										<input type="checkbox" name="restricoes" value="Vegetariano" id="vegetariano"/><label for="vegetariano"> Vegetariano</label><br />
+										<input type="checkbox" name="restricoes" value="Vegan" id="vegan"/><label for="vegan"> Vegan</label><br />
+										<input type="checkbox" name="restricoes" value="Outra" id="outraTostaMista"/><label for="outra"></label> Outra:<br />
+										<input type="text" id="outratextTostaMista" disabled name="Selecione uma restrição Alimentar">
+									</fieldset>
+								</div>
+							</div>
+							<div>
+							</div>
+							<br>
+						</div>
+						<div class="modal-footer">
+							<button id="adicionarprincipal" type="button" class="btn btn-block btn-outline-primary"
+							onClick="cartLS.add({id: 12, name: 'Tosta Mista', price: 1.50})">
+							Adicionar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<!--End of modal-->
+
+	<!-- Fatia de Bolo Modal -->
+	<div class="modal fade" id="FatiaDeBoloModal" tabindex="-1" aria-labelledby="fatiadebololabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row d-flex justify-content-center" id="tit">
+								Fatia de Bolo
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-lg-4 col-md-4 col-sm-2">
+									<img class="modalfoto" 
+									src="https://assets.petco.com/petco/image/upload/f_auto,q_auto:best,dpr_2.0,w_386/weightmgmt-hphero-122722-dog-720x480"
+									/>
+								</div>
+								<div class="col-lg-8 col-md-8 col-sm-10">
+									<fieldset>
+										<h6>Tipo de Bolo:</h6>
+										<input type="radio" name="tipoBolo" value="Chocolate" id="chocolate"/><label for="chocolate"> Chocolate</label><br />
+										<input type="radio" name="tipoBolo" value="Laranja" id="laranja"/><label for="laranja"> Laranja</label><br />
+										<input type="radio" name="tipoBolo" value="Cenoura" id="cenoura"/><label for="cenoura"> Cenoura</label><br />
+										<input type="radio" name="tipoBolo" value="Mármore" id="mármore"/><label for="mármore"> Mármore</label><br />
+									</fieldset>
+									<br>
+									<fieldset>
+										<h6>Restrições Alimentares:</h6>
+										<input type="checkbox" name="restricoes" value="Nenhuma" id="nenhuma"/><label for="nenhuma"> Nenhuma</label><br />
+										<input type="checkbox" name="restricoes" value="Vegetariano" id="vegetariano"/><label for="vegetariano"> Vegetariano</label><br />
+										<input type="checkbox" name="restricoes" value="Vegan" id="vegan"/><label for="vegan"> Vegan</label><br />
+										<input type="checkbox" name="restricoes" value="Outra" id="outraFatiaDeBolo"/><label for="outra"></label> Outra:<br />
+										<input type="text" id="outratextFatiaDeBolo" disabled name="Escreva uma restrição Alimentar">
+									</fieldset>
+								</div>
+							</div>
+							<div>
+							</div>
+							<br>
+						</div>
+						<div class="modal-footer">
+							<button id="adicionarprincipal" type="button" class="btn btn-block btn-outline-primary"
+							onClick="cartLS.add({id: 13, name: 'Fatia de Bolo', price: 1.20})">
+							Adicionar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<!--End of modal-->    
+	
+	<!-- Croissant Modal -->
+	<div class="modal fade" id="CroissantModal" tabindex="-1" aria-labelledby="croissantlabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row d-flex justify-content-center" id="tit">
+								Croissant
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-lg-4 col-md-4 col-sm-2">
+									<img class="modalfoto" 
+									src="https://assets.petco.com/petco/image/upload/f_auto,q_auto:best,dpr_2.0,w_386/weightmgmt-hphero-122722-dog-720x480"
+									/>
+								</div>
+								<div class="col-lg-8 col-md-8 col-sm-10">
+									<fieldset>
+										<h6>Tipo de Croissant:</h6>
+										<input type="radio" name="tipoCroissant" value="Simples" id="simples"/><label for="simples"> Simples</label><br />
+										<input type="radio" name="tipoCroissant" value="Queijo" id="queijo"/><label for="queijo"> Queijo</label><br />
+										<input type="radio" name="tipoCroissant" value="Fiambre" id="fiambre"/><label for="fiambre"> Fiambre</label><br />
+										<input type="radio" name="tipoCroissant" value="Misto" id="misto"/><label for="mármore"> Misto</label><br />
+										<input type="radio" name="tipoCroissant" value="Manteiga" id="manteiga"/><label for="manteiga"> Manteiga</label><br />
+	
+									</fieldset>
+									<br>
+									<fieldset>
+										<h6>Restrições Alimentares:</h6>
+										<input type="checkbox" name="restricoes" value="Nenhuma" id="nenhuma"/><label for="nenhuma"> Nenhuma</label><br />
+										<input type="checkbox" name="restricoes" value="Vegetariano" id="vegetariano"/><label for="vegetariano"> Vegetariano</label><br />
+										<input type="checkbox" name="restricoes" value="Vegan" id="vegan"/><label for="vegan"> Vegan</label><br />
+										<input type="checkbox" name="restricoes" value="Outra" id="outraCroissant"/><label for="outra"></label> Outra:<br />
+										<input type="text" id="outratextCroissant" disabled name="Escreva uma restrição Alimentar">
+									</fieldset>
+								</div>
+							</div>
+							<div>
+							</div>
+							<br>
+						</div>
+						<div class="modal-footer">
+							<button id="adicionarprincipal" type="button" class="btn btn-block btn-outline-primary"
+							onClick="cartLS.add({id: 14, name: 'Croissant', price: 1.45})">
+							Adicionar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<!--End of modal-->        
+	
+	<!-- Donut Modal -->
+	<div class="modal fade" id="DonutModal" tabindex="-1" aria-labelledby="donutlabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row d-flex justify-content-center" id="tit">
+								Donut
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-lg-4 col-md-4 col-sm-2">
+									<img class="modalfoto" 
+									src="https://assets.petco.com/petco/image/upload/f_auto,q_auto:best,dpr_2.0,w_386/weightmgmt-hphero-122722-dog-720x480"
+									/>
+								</div>
+								<div class="col-lg-8 col-md-8 col-sm-10">
+									<fieldset>
+										<h6>Tipo de donut:</h6>
+										<input type="radio" name="tipoDonut" value="simplesdonut" id="simples"/><label for="simples"> Simples</label><br />
+										<input type="radio" name="tipoDonut" value="açucaradodonut" id="acucarado"/><label for="acucarado"> Açucarado</label><br />
+										<input type="radio" name="tipoDonut" value="glacêdonut" id="glace"/><label for="clace"> Com glacê</label><br />
+									</fieldset>
+									<br>
+									<fieldset>
+										<h6>Restrições Alimentares:</h6>
+										<input type="checkbox" name="restricoes" value="Nenhuma" id="nenhuma"/><label for="nenhuma"> Nenhuma</label><br />
+										<input type="checkbox" name="restricoes" value="Vegetariano" id="vegetariano"/><label for="vegetariano"> Vegetariano</label><br />
+										<input type="checkbox" name="restricoes" value="Vegan" id="vegan"/><label for="vegan"> Vegan</label><br />
+										<input type="checkbox" name="restricoes" value="Outra" id="outraDonut"/><label for="outra"></label> Outra:<br />
+										<input type="text" id="outratextDonut" disabled name="Escreva uma restrição Alimentar">
+									</fieldset>
+								</div>
+							</div>
+							<div>
+							</div>
+							<br>
+						</div>
+						<div class="modal-footer">
+							<button id="adicionarprincipal" type="button" class="btn btn-block btn-outline-primary"
+							onClick="cartLS.add({id: 15, name: 'Donut', price: 1.20})">
+							Adicionar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<!--End of modal--> 
+
+    <!-- Fatia de Tarte Modal -->
+    <div class="modal fade" id="FatiaDeTarteModal" tabindex="-1" aria-labelledby="fatiadetartelabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row d-flex justify-content-center" id="tit">
+                            Fatia de Tarte
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-2">
+                                <img class="modalfoto" 
+                                src="https://assets.petco.com/petco/image/upload/f_auto,q_auto:best,dpr_2.0,w_386/weightmgmt-hphero-122722-dog-720x480"
+                                />
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-10">
+                                <fieldset>
+                                    <h6>Tipo de tarte:</h6>
+                                    <input type="radio" name="tipoTarte" value="macatarte" id="maça"/><label for="maça"> Maça</label><br />
+                                    <input type="radio" name="tipoTarte" value="natastarte" id="natas"/><label for="natas"> Natas</label><br />
+                                    <input type="radio" name="tipoTarte" value="amendoatarte" id="amêndoa"/><label for="amêndoa"> Amêndoa</label><br />
+                                </fieldset>
+                                <br>
+                                <fieldset>
+                                    <h6>Restrições Alimentares:</h6>
+                                    <input type="checkbox" name="restricoes" value="Nenhuma" id="nenhuma"/><label for="nenhuma"> Nenhuma</label><br />
+                                    <input type="checkbox" name="restricoes" value="Vegetariano" id="vegetariano"/><label for="vegetariano"> Vegetariano</label><br />
+                                    <input type="checkbox" name="restricoes" value="Vegan" id="vegan"/><label for="vegan"> Vegan</label><br />
+                                    <input type="checkbox" name="restricoes" value="Outra" id="outraFatiaDeTarte"/><label for="outra"></label> Outra:<br />
+                                    <input type="text" id="outratextFatiaDeTarte" disabled name="Escreva uma restrição Alimentar">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="modal-footer">
+						<button id="adicionarprincipal" type="button" class="btn btn-block btn-outline-primary"
+						onClick="cartLS.add({id: 16, name: 'Fatia de Tarte', price: 1.70})">
+						Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of modal-->   
+
+    <!-- Crepes Modal -->
+    <div class="modal fade" id="CrepesModal" tabindex="-1" aria-labelledby="crepeslabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row d-flex justify-content-center" id="tit">
+                            Crepes
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-2">
+                                <img class="modalfoto" 
+                                src="https://assets.petco.com/petco/image/upload/f_auto,q_auto:best,dpr_2.0,w_386/weightmgmt-hphero-122722-dog-720x480"
+                                />
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-10">
+                                <fieldset>
+                                    <h6>Escolher Topping:</h6>
+                                    <input type="radio" name="toppingCrepes" value="Chocolate" id="chocolate"/><label for="chocolate"> Chocolate</label><br />
+                                    <input type="radio" name="toppingCrepes" value="Morango" id="morango"/><label for="morango"> Morango</label><br />
+                                    <input type="radio" name="toppingCrepes" value="Caramelo" id="caramelo"/><label for="caramelo"> Caramelo</label><br />
+                                    <input type="radio" name="toppingCrepes" value="Xarope" id="xarope"/><label for="xarope"> Xarope</label><br />
+                                </fieldset>
+                                <br>
+                                <fieldset>
+                                    <h6>Restrições Alimentares:</h6>
+                                    <input type="checkbox" name="restricoes" value="Nenhuma" id="nenhuma"/><label for="nenhuma"> Nenhuma</label><br />
+                                    <input type="checkbox" name="restricoes" value="Vegetariano" id="vegetariano"/><label for="vegetariano"> Vegetariano</label><br />
+                                    <input type="checkbox" name="restricoes" value="Vegan" id="vegan"/><label for="vegan"> Vegan</label><br />
+                                    <input type="checkbox" name="restricoes" value="Outra" id="outraCrepes"/><label for="outra"></label> Outra:<br />
+                                    <input type="text" id="outratextCrepes" disabled name="Selecione uma restrição Alimentar">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="modal-footer">
+						<button id="adicionarprincipal" type="button" class="btn btn-block btn-outline-primary"
+						onClick="cartLS.add({id: 17, name: 'Crepes', price: 1.70})">
+						Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of modal-->    
+
+    <!--Torrada Modal-->
+    <div class="modal fade" id="TorradaModal" tabindex="-1" aria-labelledby="torradalabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row d-flex justify-content-center" id="tit">
+                            Torrada
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-2">
+                                <img class="modalfoto" 
+                                src="https://assets.petco.com/petco/image/upload/f_auto,q_auto:best,dpr_2.0,w_386/weightmgmt-hphero-122722-dog-720x480"
+                                />
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-10">
+                                <fieldset>
+                                    <h6>Restrições Alimentares:</h6>
+                                    <input type="checkbox" name="restricoes" value="Nenhuma" id="nenhuma"/><label for="nenhuma"> Nenhuma</label><br />
+                                    <input type="checkbox" name="restricoes" value="Vegetariano" id="vegetariano"/><label for="vegetariano"> Vegetariano</label><br />
+                                    <input type="checkbox" name="restricoes" value="Vegan" id="vegan"/><label for="vegan"> Vegan</label><br />
+                                    <input type="checkbox" name="restricoes" value="Outra" id="outraTostaMista"/><label for="outra"></label> Outra:<br />
+                                    <input type="text" id="outratextTostaMista" disabled name="Selecione uma restrição Alimentar">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="modal-footer">
+						<button id="adicionarprincipal" type="button" class="btn btn-block btn-outline-primary"
+						onClick="cartLS.add({id: 18, name: 'Torrada', price: 1.20})">
+						Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of modal-->    
+    
+    <!-- Waffle Modal -->
+    <div class="modal fade" id="WafflesModal" tabindex="-1" aria-labelledby="waffleslabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row d-flex justify-content-center" id="tit">
+                            Waffle
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-2">
+                                <img class="modalfoto" 
+                                src="https://assets.petco.com/petco/image/upload/f_auto,q_auto:best,dpr_2.0,w_386/weightmgmt-hphero-122722-dog-720x480"
+                                />
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-10">
+                                <fieldset>
+                                    <h6>Escolher Topping:</h6>
+                                    <input type="radio" name="toppingCrepes" value="Chocolate" id="chocolate"/><label for="chocolate"> Chocolate</label><br />
+                                    <input type="radio" name="toppingCrepes" value="Morango" id="morango"/><label for="morango"> Morango</label><br />
+                                    <input type="radio" name="toppingCrepes" value="Caramelo" id="caramelo"/><label for="caramelo"> Caramelo</label><br />
+                                    <input type="radio" name="toppingCrepes" value="Xarope" id="xarope"/><label for="xarope"> Xarope</label><br />
+                                </fieldset>
+                                <br>
+                                <fieldset>
+                                    <h6>Restrições Alimentares:</h6>
+                                    <input type="checkbox" name="restricoes" value="Nenhuma" id="nenhuma"/><label for="nenhuma"> Nenhuma</label><br />
+                                    <input type="checkbox" name="restricoes" value="Vegetariano" id="vegetariano"/><label for="vegetariano"> Vegetariano</label><br />
+                                    <input type="checkbox" name="restricoes" value="Vegan" id="vegan"/><label for="vegan"> Vegan</label><br />
+                                    <input type="checkbox" name="restricoes" value="Outra" id="outraWaffles"/><label for="outra"></label> Outra:<br />
+                                    <input type="text" id="outratextWaffles" disabled name="Selecione uma restrição Alimentar">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="modal-footer">
+						<button id="adicionarprincipal" type="button" class="btn btn-block btn-outline-primary"
+						onClick="cartLS.add({id: 19, name: 'Waffle', price: 1.20})">
+						Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of modal-->   
+	
+	</div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom"></nav>
+
+	<script>
+		function renderCart(items) {
+			const $cart = document.querySelector(".cart")
+			const $total = document.querySelector(".total")
+
+			$cart.innerHTML = items.map((item) => `
+					<tr>
+						<td>#${item.id}</td>
+						<td>${item.name}</td>
+						<td>${item.quantity}</td>
+						<td style="width: 60px;">	
+							<button type="button" class="btn btn-block btn-sm btn-outline-primary"
+								onClick="cartLS.quantity(${item.id},1)">+</button>
+						</td>
+						<td style="width: 60px;">	
+							<button type="button" class="btn btn-block btn-sm btn-outline-primary"
+								onClick="cartLS.quantity(${item.id},-1)">-</button>
+						</td>
+						<td class="text-right">€${item.price}</td>
+						<td class="text-right"><span onClick="cartLS.remove(${item.id})"><i style="color: red" class="fa fa-times" aria-hidden="true"></i></span></td>
+					</tr>`).join("")
+
+			$total.innerHTML = "€" + cartLS.total()
+		}
+		renderCart(cartLS.list())
+		cartLS.onChange(renderCart)
+	</script>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js " integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js " integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF " crossorigin="anonymous "></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js "></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'></script>
+    <script src="Js/Geral.js"></script>
+    <script>
+    </script>
+</body>
+
+</html>

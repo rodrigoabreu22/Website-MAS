@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página de perfil</title>
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous" />
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+          crossorigin="anonymous" />
+    <link href="CSS/Profile.css" rel="stylesheet" />
+    <link rel="icon" href="../Imagens/Logo/arrive amarelo_branco.png" />
+    <style>
+        body {
+            margin-top: 80px;
+        }
+        #container2{
+    visibility:hidden;
+}    
+#container3{
+    visibility:hidden;
+}    
+#container4{
+    visibility:hidden;
+}
+#container5{
+    visibility:hidden;
+
+}
+    </style>
+</head>
+
+<body class="cordeletraCASTANHO">
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <div class="btn prn">
+                        <a class="nav-link" href="HomePage.html"><i class="fa fa-home" aria-hidden="true" style="color: white;"></i></a>
+                    </div>
+                    <div class="btn prn">
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="Cafés.html">Cafés</a>
+                                <a class="dropdown-item" href="Comida.html">Comida</a>
+                                <a class="dropdown-item" href="Bebibas.html">Bebida</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn prn">
+                        <a class="nav-link" href="Aderir.html">Aderir à <i>Expresso!</i></a>
+                    </div>
+                    <div class="btn prn">
+                        <a class="nav-link" href="#">Pedidos Habituais</a>
+                    </div>
+                    <div style="margin-left: auto">
+                        <!--style="margin-left: 56rem;"-->
+                        <div class="btn prn" data-bs-toggle="modal" data-bs-target="#PedidoModal">
+                            <a class="nav-link" href="#">Pedido</a>
+                        </div>
+                        <div class="btn prn">
+                            <div class="nav-item dropdown">
+                                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i style="color:white;" class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="Profile.html">A minha Conta</a>
+                                    <a class="dropdown-item" href="Login.html">Log Out</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pedido Modal -->
+	<div class="modal fade" id="PedidoModal" tabindex="-1" aria-labelledby="pedidolabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div style="background-color: white;" class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h2 style="text-align: center; color: black;">O seu pedido</h2>
+                        </div>
+                        <div class="card-body overflow-auto">
+                            <table class="table">
+                                <tbody class="cart">
+                                </tbody>
+                                <tfoot>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="text-right">Total: <strong class="total"></strong></td>
+                                    <td></td>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fotter">
+                        <a href="Método.html">
+                            <button style="width: 150px; height: 50px; background: #C29846; border-radius: 20px; float: right;">Avançar</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<!--End of modal-->
+
+    <div class="container" style="background-color:#242424cb">
+        <form name="PersonData" name="PersonData" id="register">
+            <div class="row">
+                <fieldset style="border:1px solid white; text-align:center" >
+                    <h3 style="color:white">Método de Entrega</h3>
+                    <input type="radio" id="domicilio" name="metodo" value="Entrega ao domicilio" onclick="Show()">
+                    <label for="domicílio" style="color:white">Entrega ao domicílio</label>
+                    <input type="radio" id="café" name="metodo" value="Recolha em estabelecimento">
+                    <label for="café" style="color:white">Recolha em estabelecimento</label><br>
+                    <div class="container" style="height: 20px;"></div>
+                    <div class="container" id="container2">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="estabelecimentos" style="color:white">Estabelecimento onde recolher o seu pedido</label>
+                                <select name="estabelecimentos" id="estabelecimentosSelect">
+                                    <option value="cafe1">Café Alberto</option>
+                                    <option value="cafe2">Café Aveiro</option>
+                                    <option value="cafe3">Café do Agostinho</option>
+                                    <option value="cafe4">Café Sonho</option>
+                                </select> 
+                            </div>
+                            <div class="col-6">
+                                <label for="hora" style="color:white">Hora de recolha do pedido</label>
+                                <select name="hora" id="horaSelect">
+                                    <option value="hora1">8:30</option>
+                                    <option value="hora2">8:40</option>
+                                    <option value="hora3">8:50</option>
+                                    <option value="hora4">9:00</option>
+                                    <option value="hora5">9:10</option>
+                                    <option value="hora6">9:20</option>
+                                    <option value="hora7">9:30</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" id="container3">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <label for="clienteMorada" style="color:white">Morada</label>
+                                    </div>
+                                    <div class="col-10">
+                                    <input type="text" id="clienteMorada" placeholder="Insira a sua morada" class="form-control"> 
+                                    </div>
+                                </div>
+                            </div>   
+                            <div class="col-6">
+                                <label for="hora" style="color:white">Hora de Entrega do pedido</label>
+                                <select name="hora" id="horaSelect">
+                                    <option value="hora1">8:30</option>
+                                    <option value="hora2">8:40</option>
+                                    <option value="hora3">8:50</option>
+                                    <option value="hora4">9:00</option>
+                                    <option value="hora5">9:10</option>
+                                    <option value="hora6">9:20</option>
+                                    <option value="hora7">9:30</option>
+                                </select>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="container" style="height: 20px;"></div>
+                </fieldset>
+            </div>
+            <div class="row">
+                <fieldset style="border:1px solid white; text-align:center" >
+                    <h3 style="color:white">Método de Pagamento</h3>
+                    <input type="radio" id="mb" name="metodoPagamento" value="Cartão multibanco">
+                    <label for="mb" style="color:white">Cartão multibanco</label>
+                    <input type="radio" id="mbway" name="metodoPagamento" value="MbWay">
+                    <label for="mbway" style="color:white">MbWay</label><br>
+                    <div class="container" id="container4">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="container" style="height: 20px;"></div>
+                                <div class="col-2">
+                                    <label for="nomeCartao" style="color:white">Nome:</label>
+                                </div>
+                                <div class="col-10">
+                                <input type="text" id="nomeCartao" placeholder="Nome do Cartão" class="form-control"> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2">
+                                    <label for="numeroCartao" style="color:white">Número:</label>
+                                </div>
+                                <div class="col-10">
+                                <input type="text" id="numeroCartao" placeholder="Número do Cartão" class="form-control"> 
+                                </div>
+                            </div>
+                        </div> 
+                    </div>  
+                    <div class="container" id="container5">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-2">
+                                    <label for="numeroMbway" style="color:white">Nome:</label>
+                                </div>
+                                <div class="col-10">
+                                <input type="text" id="numeroMbway" placeholder="Número de telemóvel" class="form-control"> 
+                                </div>
+                            </div>
+                        </div> 
+                    </div>  
+                    <div class="container" style="height: 20px;"></div>
+                </fieldset>
+            </div>
+            <div class="row">
+                <div class="container" style="height: 20px;"></div>
+                <div class="col-6"><button class="btn btn-danger" id="cancelar" style="float: left;">Cancelar</button></div>
+                <div class="col-6"><button type="button" class="btn btn-warning" style="float: right;" data-bs-toggle="modal" data-bs-target="#pedidoInfo">Avançar</button></div>
+                <div class="container" style="height: 20px;"></div>
+            </div>
+
+        </form>
+    </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="pedidoInfo" tabindex="-1" aria-labelledby="pedidoInfoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 style="color: black;" class="modal-title" id="pedidoInfoLabel">O seu pedido foi submetido com sucesso e vai ser preparado</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body justify-content-center">
+          <img style="height: 100px;" src="Imagens/Outros/check.png"
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom"></nav>
+
+	<script>
+		function renderCart(items) {
+			const $cart = document.querySelector(".cart")
+			const $total = document.querySelector(".total")
+
+			$cart.innerHTML = items.map((item) => `
+					<tr>
+						<td>#${item.id}</td>
+						<td>${item.name}</td>
+						<td>${item.quantity}</td>
+						<td style="width: 60px;">	
+							<button type="button" class="btn btn-block btn-sm btn-outline-primary"
+								onClick="cartLS.quantity(${item.id},1)">+</button>
+						</td>
+						<td style="width: 60px;">	
+							<button type="button" class="btn btn-block btn-sm btn-outline-primary"
+								onClick="cartLS.quantity(${item.id},-1)">-</button>
+						</td>
+						<td class="text-right">€${item.price}</td>
+						<td class="text-right"><span onClick="cartLS.remove(${item.id})"><i style="color: red" class="fa fa-times" aria-hidden="true"></i></span></td>
+					</tr>`).join("")
+
+			$total.innerHTML = "€" + cartLS.total()
+		}
+		renderCart(cartLS.list())
+		cartLS.onChange(renderCart)
+	</script>
+        
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js " integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF " crossorigin="anonymous "></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js " integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p " crossorigin="anonymous"></script>
+<script src="js/Método.js"></script>
+<script src="js/Geral.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+</body>
+</html>
