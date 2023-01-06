@@ -1,0 +1,94 @@
+body {
+    background-image: url('../Imagens/Login/background.jpeg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #fe7a15
+}
+
+.profile-button {
+    background: #4bb531;
+    box-shadow: none;
+    border: none
+}
+
+    .profile-button:hover {
+        background: #94ca58
+    }
+
+    .profile-button:focus {
+        background: #94ca58;
+        box-shadow: none
+    }
+
+    .profile-button:active {
+        background: #94ca58;
+        box-shadow: none
+    }
+
+.profile-second-button {
+    background: #ff0000;
+    box-shadow: none;
+    border: none
+}
+
+    .profile-second-button:hover {
+        background: #f38080
+    }
+
+    .profile-second-button:focus {
+        background: #f38080;
+        box-shadow: none
+    }
+
+    .profile-second-button:active {
+        background: #f38080;
+        box-shadow: none
+    }
+.back:hover {
+    color: #3011bc;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.labels2 {
+    font-size: 16px
+}
+
+.add-experience:hover {
+    background: #8e582f;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #3011bc;
+    border-radius: 6%;
+}
+
+body {
+    background-color: #E8D9C7;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar {
+    background-color: #402F1F;
+    opacity: 90%;
+}
+
+.dropdown-menu {
+    background-color: #402F1F;
+}
+
+.dropdown-item {
+    color: #FFFFFF8C;
+}
+.cordeletraCASTANHO {
+    color: #a16f32;
+}
+
